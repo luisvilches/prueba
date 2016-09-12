@@ -5,7 +5,6 @@ var cors = require('cors');
 
 var app = express();
 var Schema = mongoose.Schema;
-var ruta = "/v2/puntos";
 
 //////////////////////////////////////////////////////////////////////
 /////////////// CONECCION A LA BASE DE DATOS /////////////////////////
@@ -48,7 +47,7 @@ var beep = mongoose.model('beep',beep);
 ///////////////////////////////////////////////////////////////////////
 
 // GET
-app.get('/api/puntos', function(req,res,next){
+app.get('/v2/puntos', function(req,res,next){
 	beep.find(function(err,data){
 		if (err) {
 			console.log(err);
