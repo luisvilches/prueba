@@ -11,7 +11,7 @@ var ruta = "/api/puntos";
 /////////////// CONECCION A LA BASE DE DATOS /////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-mongoose.connect('mongodb://luisvilches:andres2230@ds023475.mlab.com:23475/tbeep', function(err,res){
+mongoose.connect('mongodb://luisvilches:andres2230@ds017584.mlab.com:17584/restful', function(err,res){
 	if (err) {
 		console.log("problemas al conectar con la base de datos" + err)
 	};
@@ -36,6 +36,7 @@ var beep = new Schema({
 	nombre: String,
 	direccion: String,
 	comuna: String,
+	horario: String,
 	x: String,
 	y: String
 
@@ -47,27 +48,16 @@ var beep = mongoose.model('beep',beep);
 ///////////////////////////////////////////////////////////////////////
 
 // GET
-app.get(ruta, function(req,res,next){
+app.get('/api/puntos', function(req,res,next){
 	beep.find(function(err,data){
 		if (err) {
 			console.log(err);
 		};
-		res.status(200).jsonp(result:{{fields: data}});
+		res.json({result:{records:data}});
 	});
 });
 
-//GET:ID
-app.get(ruta+"/:id",function(req,res,next){
 
-	var id = req.params.id
-
-	beep.findOne({_id: id}, function(err,data){
-		if (err) {
-			console.log(err);
-		};
-		res.status(200).jsonp(data);
-	});
-});
 
 //POST
 app.post(ruta,function(req,res,next){
@@ -79,10 +69,6 @@ app.post(ruta,function(req,res,next){
 	});
 });
 
-
-//PUT
-
-//DELETE
 
 ///////////////////////////////////////////////////////////////////////
 ////////////////// PUERTO DEL SERVIDOR ////////////////////////////////
