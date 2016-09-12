@@ -5,7 +5,7 @@ var cors = require('cors');
 
 var app = express();
 var Schema = mongoose.Schema;
-var ruta = "/api/puntos";
+var ruta = "/v2/puntos";
 
 //////////////////////////////////////////////////////////////////////
 /////////////// CONECCION A LA BASE DE DATOS /////////////////////////
