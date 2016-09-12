@@ -33,12 +33,12 @@ app.use(cors());
 
 var beep = new Schema({
 
-	nombre: String,
-	direccion: String,
-	comuna: String,
-	horario: String,
-	x: String,
-	y: String
+	ENTIDAD: String,
+	DIRECCION: String,
+	COMUNA: String,
+	HORARIO: String,
+	LATITUD: String,
+	LONGITUD: String
 
 });
 var beep = mongoose.model('beep',beep);
