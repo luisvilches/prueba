@@ -47,7 +47,7 @@ var beep = mongoose.model('beep',beep);
 ///////////////////////////////////////////////////////////////////////
 
 // GET
-app.get('/find/all/puntos', function(req,res,next){
+app.get('/v2/puntos', function(req,res,next){
 	beep.find(function(err,data){
 		if (err) {
 			console.log(err);
@@ -59,7 +59,7 @@ app.get('/find/all/puntos', function(req,res,next){
 
 
 //POST
-app.post(ruta,function(req,res,next){
+app.post('/post',function(req,res,next){
 
 	var data = new beep(req.body);
 	data.save(function(err){
